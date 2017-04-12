@@ -32,8 +32,8 @@ public:
 	void captureSneaker();
 	void showSneaker();
 	int saveSneaker(ofstream& outfile);
-	bool sneakerDuplicate(Sneakers* name);
 	friend class sneakerList;
+	bool sneakerDuplicate(Sneakers* name);
 };
 
 
@@ -80,20 +80,6 @@ Sneakers::Sneakers(string name, string size, string brand, string color, string 
 }
 
 
-
-bool Sneakers::sneakerDuplicate(Sneakers* name)
-{
-	if (sneakerName == name->sneakerName && sneakerBrand == name->sneakerBrand)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
-
-
 void Sneakers::captureSneaker()
 {
 	cout << "Sneaker Name:  ";
@@ -130,6 +116,18 @@ int Sneakers::saveSneaker(ofstream& outfile)
 		return WRITEERROR;
 }
 
+
+bool Sneakers::sneakerDuplicate(Sneakers* name)
+{
+	if (sneakerName == name->sneakerName && sneakerBrand == name->sneakerBrand)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
 
 sneakerList::sneakerList()
 {
